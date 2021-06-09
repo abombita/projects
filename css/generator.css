@@ -3,14 +3,37 @@
 *{
     margin: 0;
     padding: 0;
-    background-color: dimgrey;
     font-family: Arial, Helvetica, sans-serif;
+    color: rgb(204, 201, 201);
+}
 
+/* first page css */
+
+.container{
+    display: grid;
+    grid-template-areas:
+    'header header header header header'
+    'menu menu main main main'
+    'menu menu main main main'
+    'menu menu footer footer footer';
+    grid-gap: 10px;
+    background-color: rgb(15, 32, 43);
+    padding: 10px;
+    grid-template-rows: 56vh;
 }
 
 
+.container > header, nav, section, footer {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+}
+
 .header{
     grid-area: header;
+    background-image: url("/image/typewriter.jpg");
+    background-repeat:no-repeat;
+    background-position: center;
 }
 
 .nav{
@@ -25,23 +48,41 @@
     grid-area: footer;
 }
 
+/* info page css */
 
-.container{
-    display: grid;
-    grid-template-areas:
-    'header header header header header'
-    'menu menu main main main'
-    'menu menu main main main'
-    'menu menu footer footer footer';
-    grid-gap: 5px;
-    background-color: rgb(67, 90, 104);
-    padding: 5px;
+ul{
+    list-style: none;
 }
 
 
-.container > div{
-    background-color: lightskyblue;
-    text-align: center;
-    padding: 20px 0;
+/* Prompt css */
+
+
+
+/* stories css */
+
+.story_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+
+.story_container > div {
+    color: black;
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 20px;
     font-size: 30px;
+}
+
+
+/* submissions css */
+
+textarea{
+    color: black;
+}
+
+button{
+    color: black;
 }
