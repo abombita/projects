@@ -72,16 +72,28 @@ ul{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    
+    flex-wrap: wrap;
+    background-color: black;
+    padding: 1rem;
+
 }
+
+    .short {
+    font-size: 2rem;
+    line-height: 1;
+    text-align: center;
+    padding: 2rem 1rem;
+    border: 3px solid white;
+    margin: 0.375rem; 
+    flex-basis: auto;
+    overflow: scroll;
+    }
 
 .story_container > div {
     color: black;
-    background-color: #f1f1f1;
-    margin: 10px;
-    padding: 20px;
-    font-size: 30px;
+    background-color: grey;
 }
+
 
 
 /* submissions css */
