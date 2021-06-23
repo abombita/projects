@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Story Time!</title>
     <link rel="stylesheet" href="css/generator.css">
-    <script src="js/generator.js"></script>
+    <script src="js/prompt.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -26,9 +26,11 @@
             <h3>Submissions</h3>
             <p>Don't be shy! Enter your works of art and inspire us all.</p>
             <br>
-            <textarea placeholder="Share your creation here" value="submissions" rows="30" cols="60"></textarea>
+            <textarea id="writingPieces" placeholder="Share your creation here" value="submissions" rows="30" cols="60"></textarea>
             <br>
-            <button type="submit" value="submissions">Submit</button>
+            <button type="submit" value="submissions" id="submit">Submit</button>
+            <button id="saveWork">Save</button>
+            <button id="loadWork">Load Last Project</button>
             <br>
             
         </section>

@@ -32,9 +32,25 @@ var prompt = ["A cult intends to sacrifice you to awaken their goddess. What the
 "You\'re a sci-fi writer obsessed with making your stories as scientifically accurate as possible. Your latest work became massively popular and got picked up by the scientific community. One day while you were writing, you receive a call saying you\'ve won a Nobel Prize."
 ]
 
-//Helpful adds
+//store submissions on localStorage for now
+//store in data base eventually
+document.getElementById("saveWork").addEventListener('click', function(event){
+    let newContent = document.getElementById("writingPieces").value;
+    localStorage.setItem("newContent", newContent);
+    console.log("saved")
+});
 
-//New generator code
+//recall button maybe to continue work?
+document.getElementById("loadWork").addEventListener('click', function(event){
+    let newContent = localStorage.getItem("newContent");
+    document.getElementById("writingPieces").value = newContent;
+});
+
+//submit button 
+//or maybe have it put onto stories.html?
+
+
+// generator code
 
 document.getElementById("randomGen").addEventListener('click', function(event) {
     var randomNumber = Math.floor (Math.random() * (prompt.length));
@@ -42,9 +58,12 @@ document.getElementById("randomGen").addEventListener('click', function(event) {
     console.log("randomized");
 });
 
+//try to copy the text 
+/*
+document.getElementById("copy").addEventListener('click', function(event){
+    let copyText =  document.getElementById("storyDisplay");
+    copyText.select();
+    document.execCommand("copy");
+    alert("Copied the text: " + copyText.value);
+}); */
 
-//function newStory() {
-//var randomNumber = Math.floor (Math.random() * (prompt.length));
-//document.getElementById('storyDisplay').innerHTML = prompt[randomNumber];}
-//html code
-//onclick="newStory()"
