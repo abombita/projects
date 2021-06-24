@@ -34,24 +34,30 @@ var prompt = ["A cult intends to sacrifice you to awaken their goddess. What the
 
 //store submissions on localStorage for now
 //store in data base eventually
+if (document.getElementById("saveWork")){
 document.getElementById("saveWork").addEventListener('click', function(event){
-    let newContent = document.getElementById("writingPieces").value;
-    localStorage.setItem("newContent", newContent);
-    console.log("saved")
+    let newContent = JSON.stringify(document.getElementById("writingPieces").value);
+    localStorage.setItem("savedContent", newContent);
+    document.getElementById("writingPieces").value= "";
 });
+
 
 //recall button maybe to continue work?
 document.getElementById("loadWork").addEventListener('click', function(event){
-    let newContent = localStorage.getItem("newContent");
-    document.getElementById("writingPieces").value = newContent;
+    let savedContent = localStorage.getItem("savedContent");
+    let loadContent = JSON.parse(savedContent);
+    document.getElementById("writingPieces").value = loadContent;
 });
 
 //submit button 
 //or maybe have it put onto stories.html?
 
+};
+
+
 
 // generator code
-
+if (document.getElementById("randomGen")){
 document.getElementById("randomGen").addEventListener('click', function(event) {
     var randomNumber = Math.floor (Math.random() * (prompt.length));
     document.getElementById("storyDisplay").innerHTML = prompt[randomNumber];
@@ -66,4 +72,4 @@ document.getElementById("copy").addEventListener('click', function(event){
     document.execCommand("copy");
     alert("Copied the text: " + copyText.value);
 }); */
-
+};
