@@ -35,22 +35,31 @@ var prompt = ["A cult intends to sacrifice you to awaken their goddess. What the
 //store submissions on localStorage for now
 //store in data base eventually
 if (document.getElementById("saveWork")){
-document.getElementById("saveWork").addEventListener('click', function(event){
-    let newContent = JSON.stringify(document.getElementById("writingPieces").value);
-    localStorage.setItem("savedContent", newContent);
-    document.getElementById("writingPieces").value= "";
+    document.getElementById("saveWork").addEventListener('click', function(event){
+        let newContent = JSON.stringify(document.getElementById("writingPieces").value);
+        localStorage.setItem("savedContent", newContent);
+        document.getElementById("writingPieces").value= "";
+    });
+
+
+    //recall button maybe to continue work?
+    document.getElementById("loadWork").addEventListener('click', function(event){
+        let savedContent = localStorage.getItem("savedContent");
+        let loadContent = JSON.parse(savedContent);
+        document.getElementById("writingPieces").value = loadContent;
+    });
+
+    //submit button 
+    //once theres a server ill update
+
+    document.getElementById("submit").addEventListener('click', function(event) {
+        let submitContent = document.getElementById("writingPieces").value;
+        localStorage.setItem("submitContent", submitContent);
+        document.getElementById("writingPieces").value= "";
+        //have it put onto stories.html
+        let submission = JSON.parse(submitContent);
+        document.getElementById("firstStory").innerHTML = submissions;
 });
-
-
-//recall button maybe to continue work?
-document.getElementById("loadWork").addEventListener('click', function(event){
-    let savedContent = localStorage.getItem("savedContent");
-    let loadContent = JSON.parse(savedContent);
-    document.getElementById("writingPieces").value = loadContent;
-});
-
-//submit button 
-//or maybe have it put onto stories.html?
 
 };
 
@@ -58,18 +67,22 @@ document.getElementById("loadWork").addEventListener('click', function(event){
 
 // generator code
 if (document.getElementById("randomGen")){
-document.getElementById("randomGen").addEventListener('click', function(event) {
-    var randomNumber = Math.floor (Math.random() * (prompt.length));
-    document.getElementById("storyDisplay").innerHTML = prompt[randomNumber];
-    console.log("randomized");
-});
+    //a prompt to be there on load
+
+    document.getElementById("randomGen").addEventListener('click', function(event) {
+        var randomNumber = Math.floor (Math.random() * (prompt.length));
+        document.getElementById("storyDisplay").innerHTML = prompt[randomNumber];
+    });
 
 //try to copy the text 
-/*
 document.getElementById("copy").addEventListener('click', function(event){
-    let copyText =  document.getElementById("storyDisplay");
-    copyText.select();
-    document.execCommand("copy");
-    alert("Copied the text: " + copyText.value);
-}); */
+    let elm = document.getElementById("storyDisplay");
+    let selection = window.getSelection();
+    let range = document.createRange();
+    range.selectNodeContents(elm);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("Copy");
+    alert("Story Prompt Copied");
+});
 };
