@@ -3,15 +3,24 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Courier New', Courier, monospace, monospace;
     color: white;
 }
 
 header > h1{
-    color:slateblue;
+    color:rgba(124, 14, 0, 0.767);
+    margin: 0;
+    padding: 0;
+    font-size: 4em;
 }
 
-/* first page css */
+h1, h2, h3, h4{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: rgb(109, 109, 109);
+}
 
 .container{
     display: grid;
@@ -20,8 +29,7 @@ header > h1{
     'menu menu main main main'
     'menu menu main main main'
     'menu menu footer footer footer';
-    grid-gap: 10px;
-    background-color: rgb(15, 32, 43);
+    gap: 10px;
     padding: 10px;
     grid-template-rows: 56vh;
 }
@@ -29,15 +37,15 @@ header > h1{
 
 .container > header, nav, section, footer {
     text-align: center;
-    padding: 20px 0;
+    padding: 20px;
     font-size: 30px;
 }
 
 .header{
     grid-area: header;
-    background-image: url("/image/typewriter.jpg");
-    background-repeat:no-repeat;
-    background-position: center;
+    background-image: url("/image/smltypewriter.jpg");
+    background-repeat:repeat;
+    border: 10px, solid black;
 }
 
 .nav{
@@ -61,7 +69,7 @@ ul{
 
 /* Prompt css */
 #storyDisplay{
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.815);
     color: black;
 } 
 
@@ -73,7 +81,7 @@ ul{
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    background-color: black;
+    /*background-color: black;*/
     padding: 1rem;
 
 }
@@ -90,8 +98,7 @@ ul{
     }
 
 .story_container > div {
-    color: black;
-    background-color: grey;
+    background-color: rgb(15, 15, 15);
     font-size: 15px;
 }
 

@@ -56,9 +56,6 @@ if (document.getElementById("saveWork")){
         let submitContent = document.getElementById("writingPieces").value;
         localStorage.setItem("submitContent", submitContent);
         document.getElementById("writingPieces").value= "";
-        //have it put onto stories.html
-        let submission = JSON.parse(submitContent);
-        document.getElementById("firstStory").innerHTML = submissions;
 });
 
 };
@@ -76,13 +73,12 @@ if (document.getElementById("randomGen")){
 
 //try to copy the text 
 document.getElementById("copy").addEventListener('click', function(event){
-    let elm = document.getElementById("storyDisplay");
+    let el = document.getElementById("storyDisplay");
     let selection = window.getSelection();
     let range = document.createRange();
-    range.selectNodeContents(elm);
+    range.selectNodeContents(el);
     selection.removeAllRanges();
     selection.addRange(range);
-    document.execCommand("Copy");
     alert("Story Prompt Copied");
 });
 };
